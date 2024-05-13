@@ -11,13 +11,13 @@ const reducer = (state, action) => {
       count: state.count +1,
       toggleText: state.toggleText
     }
-    break;
+    
   case "DECREMENT":
     return{
       count: state.count -1,
       toggleText: state.toggleText
     }
-  break;
+  
   case "toggleText":
     return{
       count: state.count,
@@ -30,10 +30,7 @@ const reducer = (state, action) => {
 
 function App() {
   // const [count, setCount] = useState(0)
-
-
-
-const[count, dispatch] = useReducer(reducer, {
+const[state, dispatch] = useReducer(reducer, {
   count: 0,
   toggleText: true
 })
@@ -45,11 +42,13 @@ const[count, dispatch] = useReducer(reducer, {
 
       
 <h1>Counter Application</h1>
+<h2>Current Count: {state.count}</h2>
 <div className="btnContainer">
   <button onClick={() => {dispatch({type: "DECREMENT"})}}> - </button>
-  <button onClick={() => {dispatch({type: "INCREMENT"})}}> + </button>
+  <button onClick={() => {dispatch({type: "INCREMENT"})}}> + </button><hr/>
+  <button onClick={() => {dispatch({type: "toggleText"})}}> Hide </button>
+  <div>{state.toggleText && <p>This text is visible</p>}</div>
 </div>
-<h2>Current Count: {count.count}</h2>
 
 
     </div>
