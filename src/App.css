@@ -41,6 +41,15 @@
   color: #888;
 }
 .btnContainer {
+  box-sizing: content-box;
   border: solid black;
-  height: 200px;
+  height: auto;
+}
+.btnContainer button {
+background-color: rgb(197, 211, 219);
+
+}
+.emoji {
+  font-size: 100px;
+  /* padding: 20px; */
 }
